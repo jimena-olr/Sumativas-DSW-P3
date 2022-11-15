@@ -23,7 +23,9 @@
 			<p style='font-weight: bold; font-size: 90px;' id="secs">00</p>
 			</div>
 		</div><br>
-			<h2 id="msg"> </h2>
+			<div class="col-4 offset-4 ">
+            		<p style='font-weight: bold; font-size: 90px; text-align: center;' id="msg"></p>
+           		 </div>
 	</div>
 	
 </body>
@@ -33,11 +35,16 @@
 	var PrevNoches=false;
 	var PrevDías=false;
 	var PrevTardes=false;
-	var secs=0;
-	var mins=0;
-	var hrs=0;
+	var date= new Date();
+   	var secs=date.getSeconds();
+  	var mins=date.getMinutes();
+   	var hrs=date.getHours();
 	
      setInterval(timer, 1000);
+	
+	document.getElementById('secs').innerHTML=secs;
+    	document.getElementById('mins').innerHTML=mins;
+    	document.getElementById('hrs').innerHTML=hrs;
     
 
 
@@ -85,7 +92,7 @@
 		paragraph.appendChild(text);
 		PrevNoches=true;
 	}
-	else if(hrs>=11 && PrevDías==false){
+	else if(hrs<11 && PrevDías==false){
 		var paragraph = document.getElementById("msg");
 		var text = document.createTextNode("BUENOS DÍAS");
 		paragraph.appendChild(text);
