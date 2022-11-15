@@ -1,2 +1,84 @@
+<!DOCTYPE html>
+@Bruno Palacios
 <html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- CSS only -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+	<title>RandClock4Progra:)</title>
+</head>
+<body>
+	<br>
+	<br>
+	<br>
+	<div class="container">
+		<div class="row offset-3">
+			<div class="col-3">
+			<p style='font-weight: bold; font-size: 90px;' id="hrs">00</p>
+			</div>
+			<div class="col-3">
+			<p style='font-weight: bold; font-size: 90px;' id="mins">00</p>
+			</div>
+			<div class="col-3 ">
+			<p style='font-weight: bold; font-size: 90px;' id="secs">00</p>
+			</div>
+		</div>
+	</div>
+	
+</body>
+<script>
+
+	//var interval = setInterval(timer, 1000);
+	var secs=0;
+	var mins=0;
+	var hrs=0;
+	
+     setInterval(timer, 1000);
+    
+
+
+
+	function timer(){
+
+	
+	secs=secs+1;
+	if (secs < 60){
+
+	 document.getElementById('secs').innerHTML=secs;
+
+	} else {
+
+		secs=0;
+		document.getElementById('secs').innerHTML=secs;
+		if (mins<59){
+
+			mins=mins+1;
+			document.getElementById('mins').innerHTML=mins;
+
+
+		} else {
+
+			mins=0;
+			document.getElementById('mins').innerHTML=mins;
+
+			if (hrs<23){
+
+				hrs=hrs+1
+				document.getElementById('hrs').innerHTML=hrs;
+
+			} else {
+
+				hrs=0;
+				document.getElementById('hrs').innerHTML=hrs;
+			}
+
+		}
+
+	}
+
+
+}
+	
+</script>
 </html>
