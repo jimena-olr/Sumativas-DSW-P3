@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-@Bruno Palacios
 <html>
 <head>
 	<meta charset="utf-8">
@@ -23,13 +22,17 @@
 			<div class="col-3 ">
 			<p style='font-weight: bold; font-size: 90px;' id="secs">00</p>
 			</div>
-		</div>
+		</div><br>
+			<h2 id="msg"> </h2>
 	</div>
 	
 </body>
 <script>
 
 	//var interval = setInterval(timer, 1000);
+	var PrevNoches=false;
+	var PrevDías=false;
+	var PrevTardes=false;
 	var secs=0;
 	var mins=0;
 	var hrs=0;
@@ -75,6 +78,24 @@
 
 		}
 
+	}
+		if(hrs>=19 || hrs<5 && PrevNoches==false){
+		var paragraph = document.getElementById("msg");
+		var text = document.createTextNode("BUENAS NOCHES");
+		paragraph.appendChild(text);
+		PrevNoches=true;
+	}
+	else if(hrs>=11 && PrevDías==false){
+		var paragraph = document.getElementById("msg");
+		var text = document.createTextNode("BUENOS DÍAS");
+		paragraph.appendChild(text);
+		PrevDías=true;
+	}
+	else if(hrs>=11 && PrevTardes==false){
+		var paragraph = document.getElementById("msg");
+		var text = document.createTextNode("BUENAS TARDES");
+		paragraph.appendChild(text);
+		PrevTardes=true;
 	}
 
 
