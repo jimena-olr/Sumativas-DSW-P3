@@ -40,19 +40,19 @@ public function __construct($username, $name, $last_name, $birthdate)
 
   }
 
-  public function update($id){
+  public function update($id, $up_name, $up_username, $up_last_name, $up_birthdate){
 
-  	$sql = "ALTER TABLE students MODIFY username WHERE id=$id";
-  	mysqli_query($db, $sql);
+    $sql = "UPDATE students SET username = '$up_username', name='$up_name', last_name='$up_last_name', birthdate='$up_birthdate' WHERE id=$id";
+    mysqli_query($db, $sql);
+  	
 
-  	$sql = "ALTER TABLE students MODIFY name WHERE id=$id";
-  	mysqli_query($db, $sql);
+  }
 
-  	$sql = "ALTER TABLE students MODIFY last_name WHERE id=$id";
-  	mysqli_query($db, $sql);
+  public function delete($id){
 
-  	$sql = "ALTER TABLE students MODIFY birthdate WHERE id=$id";
-  	mysqli_query($db, $sql);
+    $sql = "DELETE FROM students WHERE id=$id";
+    mysqli_query($db, $sql);
+
 
   }
  
